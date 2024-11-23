@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>❤️ Heart Disease Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  </head>
+
+  <body>
+    <div class="grid">
+
+      <div class="box">
+
+        <h2>Heart Disease Risk Prediction</h2>
+        <p>Fill in the details below to predict the likelihood of heart disease:</p>
+
+        <form action="{{ url_for('predict')}}" method="post">
+
+          <!-- Gender input -->
+          <label for="gender">Gender:</label>
+          <select name="gender" required="required">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+
+          <!-- FPG (Fasting Plasma Glucose) input -->
+          <label for="fpg">Fasting Plasma Glucose (mg/dL):</label>
+          <input type="number" name="fpg" placeholder="Enter Fasting Plasma Glucose" required="required" min="0" max="300" />
+
+          <!-- HbA1c (Haemoglobin A1c) input -->
+          <label for="hba1c">Haemoglobin A1c (%):</label>
+          <input type="number" name="hba1c" placeholder="Enter HbA1c level" required="required" step="0.1" min="4" max="15" />
+
+          <!-- Nocturia (Excessive urination at night) -->
+          <label for="nocturia">Excessive urination at night:</label>
+          <select name="nocturia" required="required">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+
+          <!-- Polyuria (Excessive urination) -->
+          <label for="polyuria">Excessive urination:</label>
+          <select name="polyuria" required="required">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+
+          <!-- Weight Loss input -->
+          <label for="weight_loss">Weight Loss:</label>
+          <select name="weight_loss" required="required">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+
+          <!-- Vomiting input -->
+          <label for="vomiting">Vomiting Episodes:</label>
+          <select name="vomiting" required="required">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+
+          <!-- Nausea input -->
+          <label for="nausea">Frequent Nausea:</label>
+          <select name="nausea" required="required">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+
+          <!-- Polydipsia (Excessive Thirst) -->
+          <label for="polydipsia">Excessive Thirst:</label>
+          <select name="polydipsia" required="required">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+
+          <!-- Polyphagia (Excessive Hunger) -->
+          <label for="polyphagia">Excessive Hunger:</label>
+          <select name="polyphagia" required="required">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+
+          <!-- Headache input -->
+          <label for="headache">Frequent Headaches:</label>
+          <select name="headache" required="required">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+
+          <!-- BMI (Body Mass Index) input -->
+          <label for="bmi">BMI (Body Mass Index):</label>
+          <input type="number" name="bmi" placeholder="Enter BMI" required="required" step="0.1" min="10" max="60" />
+
+          <!-- Submit button -->
+          <button type="submit" class="btn">Predict Risk of Heart Disease</button>
+        </form>
+
+        <!-- Prediction Result -->
+        <p>{{ prediction_text }}</p>
+
+      </div>
+
+    </div>
+
+  </body>
+</html>

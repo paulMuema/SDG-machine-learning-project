@@ -5,12 +5,12 @@ body {
 	background: black;
 	color: #fff;
 	text-align: center;
-	letter-spacing: 1.4px;
-	font-size: 30px;
+	letter-spacing: 2.0px;
+	font-size: 20px;
 }
 
 input {
-	min-width: 150px;
+	min-width: 100px;
 }
 
 .grid {

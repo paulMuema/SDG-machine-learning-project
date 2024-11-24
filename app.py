@@ -1,12 +1,17 @@
 import numpy as np
 from flask import Flask, request, render_template
 import pickle
+from sklearn.preprocessing import StandardScaler #Using Scaler 
 
 # Initialize the Flask app and specify the templates folder
-app = Flask(__name__, template_folder="web-app/templates")
+app = Flask(__name__, template_folder="web-app/templates", static_folder = "web-app/static")
 
 # Load the trained diabetes prediction model
 model = pickle.load(open("./diabetes-prediction-model.pkl", "rb"))
+
+
+#Recreate the scaler
+scaler = StandardScaler()
 
 @app.route("/")
 def home():

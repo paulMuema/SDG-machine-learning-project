@@ -16,26 +16,26 @@ def home():
 @app.route("/predict", methods=["POST"])
 def predict():
     # Collect user inputs from the form
-    age = int(request.form["age"])  # Age
-    gender = request.form["gender"]  # Gender (Male/Female)
-    fpg = float(request.form["fpg"])  # Fasting Plasma Glucose
-    hba1c = float(request.form["hba1c"])  # HbA1c level
-    nocturia = int(request.form["nocturia"])  # Excessive urination at night (0/1)
-    polyuria = int(request.form["polyuria"])  # Excessive urination (0/1)
-    weight_loss = int(request.form["weight_loss"])  # Weight loss (0/1)
-    vomiting = int(request.form["vomiting"])  # Vomiting episodes (0/1)
-    nausea = int(request.form["nausea"])  # Frequent nausea (0/1)
-    polydipsia = int(request.form["polydipsia"])  # Excessive thirst (0/1)
-    polyphagia = int(request.form["polyphagia"])  # Excessive hunger (0/1)
-    headache = int(request.form["headache"])  # Frequent headaches (0/1)
-    bmi = float(request.form["bmi"])  # BMI (Body Mass Index)
+    AGE = int(request.form["age"])  # Age
+    Gender = request.form["gender"]  # Gender (Male/Female)
+    FPG = float(request.form["fpg"])  # Fasting Plasma Glucose
+    HbA1c = float(request.form["hba1c"])  # HbA1c level
+    Nocturia = int(request.form["nocturia"])  # Excessive urination at night (0/1)
+    Polyuria = int(request.form["polyuria"])  # Excessive urination (0/1)
+    Weight_loss = int(request.form["weight_loss"])  # Weight loss (0/1)
+    Vomiting = int(request.form["vomiting"])  # Vomiting episodes (0/1)
+    Nausea = int(request.form["nausea"])  # Frequent nausea (0/1)
+    Polydipsia = int(request.form["polydipsia"])  # Excessive thirst (0/1)
+    Polyphagia = int(request.form["polyphagia"])  # Excessive hunger (0/1)
+    Headache = int(request.form["headache"])  # Frequent headaches (0/1)
+    BMI = float(request.form["bmi"])  # BMI (Body Mass Index)
 
     # Convert gender to numeric value (Male=1, Female=0)
-    gender_numeric = 1 if gender == "Male" else 0
+    gender_numeric = 1 if Gender == "Male" else 0
 
     # Creating the feature array
-    features = [age, gender_numeric, fpg, hba1c, nocturia, polyuria, weight_loss, vomiting,
-                nausea, polydipsia, polyphagia, headache, bmi]
+    features = [AGE, gender_numeric, FPG, HbA1c, Nocturia, Polyuria, Weight_loss, Vomiting,
+                Nausea, Polydipsia, Polyphagia, Headache, BMI]
 
     # Convert the features into a numpy array for prediction
     final_features = [np.array(features)]

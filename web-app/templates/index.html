@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>❤️ Heart Disease Prediction</title>
+    <title>🩺 Diabetes Risk Prediction</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
   </head>
 
@@ -11,10 +11,13 @@
 
       <div class="box">
 
-        <h2>Heart Disease Risk Prediction</h2>
-        <p>Fill in the details below to predict the likelihood of heart disease:</p>
+        <h2>Diabetes Risk Prediction</h2>
+        <p>Fill in the details below to predict the likelihood of diabetes:</p>
 
         <form action="{{ url_for('predict')}}" method="post">
+          <!-- Age -->
+          <label for="age">Age:</label>
+          <input type="number" name="age" placeholder="Enter Age" required="required" min="0" max="120" />
 
           <!-- Gender input -->
           <label for="gender">Gender:</label>
@@ -92,7 +95,7 @@
           <input type="number" name="bmi" placeholder="Enter BMI" required="required" step="0.1" min="10" max="60" />
 
           <!-- Submit button -->
-          <button type="submit" class="btn">Predict Risk of Heart Disease</button>
+          <button type="submit" class="btn">Predict Risk of Diabetes</button>
         </form>
 
         <!-- Prediction Result -->
